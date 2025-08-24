@@ -26,11 +26,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set PORT=34568 && react-scripts start",
+    "start": "set PORT=3000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "serve -s build -l 34568",
+    "serve": "serve -s build -l 3000",
     "start:prod": "npm run build && npm run serve"
   },
   "eslintConfig": {

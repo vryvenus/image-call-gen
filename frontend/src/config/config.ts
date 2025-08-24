@@ -10,25 +10,25 @@ export interface AppConfig {
 const getApiBaseUrl = (): string => {
   const hostname = window.location.hostname;
   
-  // Если мы на продакшн сервере
-  if (hostname === '45.120.177.170') {
-    return 'http://45.120.177.170:34567';
+  // В Docker или продакшн - используем nginx proxy через /api
+  if (process.env.NODE_ENV === 'production' || hostname === '45.120.177.170') {
+    return '/api';
   }
   
-  // Если мы на localhost или 127.0.0.1
+  // Для разработки - прямое обращение к backend
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return 'http://localhost:34567';
+    return 'http://localhost:8000';
   }
   
-  // Fallback на localhost
-  return 'http://localhost:34567';
+  // Fallback на /api для Docker
+  return '/api';
 };
 
 export const config: AppConfig = {
   API_BASE_URL: getApiBaseUrl(),
   PRODUCTION_IP: '45.120.177.170',
-  DEVELOPMENT_PORT: 34568,
-  API_PORT: 34567,
+  DEVELOPMENT_PORT: 3000,
+  API_PORT: 8000,
   TIMEOUT: 30000,
 };
 

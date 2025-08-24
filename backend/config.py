@@ -2,29 +2,23 @@ import os
 from typing import List
 
 class Settings:
-    PORT: int = 34567
+    PORT: int = 8000
     HOST: str = "0.0.0.0"
     DEBUG: bool = True
     
     # Основной IP для хостинга
-    PRODUCTION_IP: str = "45.120.177.170"
+    PRODUCTION_IP: str = "178.33.142.78"
     
     # URL-адреса фронтенда для CORS
     FRONTEND_URLS: List[str] = [
-        "http://localhost:34568", 
-        "http://127.0.0.1:34568",
-        "http://45.120.177.170:34568",
-        "https://45.120.177.170:34568"
+        "http://localhost:3000", 
+        "http://178.33.142.78",
     ]
     
     # Дополнительные разрешенные origins
     ALLOWED_ORIGINS: List[str] = [
-        "http://localhost:34568",
-        "http://127.0.0.1:34568", 
-        "http://45.120.177.170:34568",
-        "https://45.120.177.170:34568",
-        f"http://45.120.177.170",
-        f"https://45.120.177.170"
+        "http://localhost:3000",
+        "http://178.33.142.78", 
     ]
     
     # Настройки для генерации изображений
