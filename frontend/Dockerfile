@@ -4,11 +4,11 @@ FROM node:18-alpine
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
-COPY package*.json ./
+# Копируем package.json
+COPY package.json ./
 
 # Устанавливаем зависимости
-RUN npm ci --only=production
+RUN npm install
 
 # Копируем исходный код
 COPY . .
@@ -16,5 +16,5 @@ COPY . .
 # Открываем порт
 EXPOSE 3000
 
-# Команда запуска в dev режиме
+# Команда запуска
 CMD ["npm", "start"]
